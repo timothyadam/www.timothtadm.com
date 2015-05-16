@@ -94,7 +94,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "register", method = RequestMethod.POST)
-	@ResponseBody
+	//@ResponseBody
 	public Object userUpdate(@ModelAttribute("member") Member member, HttpServletRequest request, HttpSession session, BindingResult result) {
 		SessionUser sessionUser = (SessionUser) session.getAttribute(SessionUser.SESSION_USER_KEY);
 		//注册 1  用户名是否已经 存在  2  邮箱是否已经存在  用户名 是否 为空  
@@ -112,7 +112,7 @@ public class MemberController {
 			log.error(e.getMessage());
 		}		
 		}
-		return JsonRespWrapper.success("注册", "/sys/user/list");
+		return "sys/member/memberrer";
 	}
 
 	@RequestMapping(value = "userDel")
