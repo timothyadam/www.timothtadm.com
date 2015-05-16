@@ -15,13 +15,17 @@
     <link href="<spring:url value="/static/jquery-ui/jquery-ui.min.css"/>" rel="stylesheet" type="text/css" />
     <link href="<spring:url value="/static/jquery-ui/jquery-ui.theme.min.css"/>" rel="stylesheet" type="text/css" />
     <link href="<spring:url value="/static/jquery-ui/jquery-ui.structure.min.css"/>" rel="stylesheet" type="text/css" /> 
-    <!-- 引入所需的js  -->
+    <!-- link base js  -->
      <script src="<spring:url value="/static/jquery-ui/external/jquery/jquery.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/jquery-ui/jquery-ui.js"/>" type="text/javascript" charset="utf-8"></script>
-    <script src="<spring:url value="/static/js/login.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/bootstrap/js/bootstrap.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/bootstrap/js/bootstrap.min.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/bootstrap/js/npm.js"/>" type="text/javascript" charset="utf-8"></script>
+    <!-- it form  me -->
+    <script src="<spring:url value="/static/js/jquery.form.js"/>" type="text/javascript" charset="utf-8"></script>
+    <script src="<spring:url value="/static/js/login.js"/>" type="text/javascript" charset="utf-8"></script>
+    <script src="<spring:url value="/static/js/main.js"/>" type="text/javascript" charset="utf-8"></script>
+   
     <!--表单验证  -->
     <script src="<spring:url value="/static/js/validation/validation_cn.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/js/main.js"/>" type="text/javascript" charset="utf-8"></script>
