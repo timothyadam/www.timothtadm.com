@@ -24,6 +24,15 @@ version="3.0">
         <param-name>spring.profiles.active</param-name>  
         <param-value>develop</param-value>  
     </context-param>   -->
+  <!--  OpenEntityManagerInViewFilter会让session一直到view层调用结束后才关闭，请看下面的伪代码： -->
+   	<filter>
+		<filter-name>openEntityManagerInViewFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>openEntityManagerInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
    
   <filter>
 		<filter-name>assertionThreadLocalFilter</filter-name>
