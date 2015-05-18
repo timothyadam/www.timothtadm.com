@@ -22,12 +22,12 @@
     <script src="<spring:url value="/static/bootstrap/js/bootstrap.min.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/bootstrap/js/npm.js"/>" type="text/javascript" charset="utf-8"></script>
     <!-- it form  me -->
+     <script src="<spring:url value="/static/js/main.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/js/jquery.form.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/js/login.js"/>" type="text/javascript" charset="utf-8"></script>
-    <script src="<spring:url value="/static/js/main.js"/>" type="text/javascript" charset="utf-8"></script>
-   
     <!--表单验证  -->
     <script src="<spring:url value="/static/js/validation/validation_cn.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/js/main.js"/>" type="text/javascript" charset="utf-8"></script>
+    
     
          
