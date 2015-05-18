@@ -14,7 +14,8 @@
      <!--  AssertionHolder的实现 -->
     <bean name="assertionThreadLocalFilter" class="org.jasig.cas.client.util.AssertionThreadLocalFilter"/>
 
-    <!-- jpa 视图lazy load问题解决 -->
-<!--     <bean name="openEntityManagerInViewFilter" class="org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter" />
+<!--     jpa 视图lazy load问题解决
  -->
+     <bean name="openEntityManagerInViewFilter" class="org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter" />
+
 </beans>
