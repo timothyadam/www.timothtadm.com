@@ -10,7 +10,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.validation.FieldError;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
 import com.google.common.collect.Maps;
 
 public class JsonRespWrapper {
@@ -30,12 +29,11 @@ public class JsonRespWrapper {
 	}
 
 	public static Object denied() {
-		return error("û��Ȩ��.");
+		return error("未定义");
 	}
 
 	/**
-	 * ֻ���سɹ���־
-	 * 
+	 * 成功的 提醒
 	 * @return
 	 */
 	public static Object success() {
@@ -45,7 +43,7 @@ public class JsonRespWrapper {
 	}
 
 	/**
-	 * ��ʾ�ɹ���Ϣ
+	 *成功提示框
 	 * 
 	 * @return
 	 */
@@ -54,10 +52,10 @@ public class JsonRespWrapper {
 	}
 
 	/**
-	 * ֱ����ת
+	 *
 	 * 
 	 * @param redirectUrl
-	 *            ������http��ͷ�����Ǿ��·����/��ͷ
+	 *            
 	 * @return
 	 */
 	public static Object successJump(String redirectUrl) {
@@ -65,12 +63,11 @@ public class JsonRespWrapper {
 	}
 
 	/**
-	 * �ɹ�����ʾ����ת�����messageΪ�գ���ֱ����ת�����redirectUrlΪ�գ�����ת
-	 * 
+	 *操作成功 
 	 * @param message
-	 *            ��ʾ��Ϣ
+	 *          
 	 * @param redirectUrl
-	 *            ������http��ͷ�����Ǿ��·����/��ͷ
+	 *          跳转
 	 * @return
 	 */
 	public static Object success(String message, String redirectUrl) {
@@ -81,7 +78,7 @@ public class JsonRespWrapper {
 	}
 
 	/**
-	 * ���سɹ�����ˢ�µ�ǰҳ��
+	 * 加载成功
 	 * 
 	 * @param message
 	 * @return
@@ -91,7 +88,7 @@ public class JsonRespWrapper {
 	}
 
 	/**
-	 * ���سɹ���������ǰһ��ҳ��
+	 *
 	 * 
 	 * @param message
 	 * @return
@@ -101,7 +98,7 @@ public class JsonRespWrapper {
 	}
 
 	/**
-	 * ����ǰһ��ҳ�棬������������
+	 * 
 	 * 
 	 * @param message
 	 * @return
@@ -112,13 +109,12 @@ public class JsonRespWrapper {
 		if (StringUtils.isEmpty(url)) {
 			return successBack(message);
 		}
-		// ����һ��url����Ϊ�ͻ���js�Ѿ���contextpath �����ˣ�������� ��Ҫ��ƴ�ӵ�contextPath ȥ��
 		url = url.replace(request.getContextPath(), "");
 		return success(message, url);
 	}
 
 	/**
-	 * �ɹ����Ҵ����ֵ��
+	 *
 	 * 
 	 * @param key
 	 * @param value
