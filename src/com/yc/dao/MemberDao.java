@@ -19,6 +19,7 @@ public interface MemberDao extends PagingAndSortingRepository<Member, Long>  {
 	Member findByMemberCode(String memberCode);
 	Member findByEmail(String email);
 	Member findByIdNotAndEmail(Long id, String email);
+	Member findByAccount(String account);
 	
 	
 }
