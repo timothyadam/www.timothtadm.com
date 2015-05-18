@@ -3,8 +3,10 @@ package com.yc.web;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.jasig.cas.client.authentication.AttributePrincipalImpl;
 import org.jasig.cas.client.util.AbstractCasFilter;
@@ -19,9 +21,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.alibaba.druid.stat.TableStat.Mode;
+import com.alibaba.druid.util.StringUtils;
+import com.alibaba.fastjson.JSON;
 import com.cplatform.util2.TimeStamp;
 import com.cplatform.util2.security.MD5;
+import com.google.gson.Gson;
 import com.yc.dao.MemberDao;
+import com.yc.entity.JsonResult;
 import com.yc.entity.Member;
 import com.yc.entity.SessionUser;
 import com.yc.service.MemberService;
@@ -94,11 +103,13 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "register", method = RequestMethod.POST)
-	//@ResponseBody
+	@ResponseBody
 	public Object userUpdate(@ModelAttribute("member") Member member, HttpServletRequest request, HttpSession session, BindingResult result) {
 		SessionUser sessionUser = (SessionUser) session.getAttribute(SessionUser.SESSION_USER_KEY);
 		//注册 1  用户名是否已经 存在  2  邮箱是否已经存在  用户名 是否 为空  
-		
+		boolean flag = false;
+		String errorMessage = "用户登录失败";
+		JsonResult jsonResult = new JsonResult();
 		if(member!=null||"".equals(member)){
 		String time = TimeStamp.getTime(TimeStamp.YYYYMMDDhhmmss); 
 		 System.out.println(member.getAccount());
@@ -112,20 +123,21 @@ public class MemberController {
 			log.error(e.getMessage());
 		}		
 		}
-		return "sys/member/memberrer";
+		
+		return JsonRespWrapper.success("注册失败", "/sys/member/list");	
 	}
 
-	@RequestMapping(value = "userDel")
+/*	@RequestMapping(value = "userDel")
 	@ResponseBody
 	public Object userDel(@RequestParam(value = "id") Long id) {
-	/*	SysUser user = this.userService.findSysUserById(id);
+		SysUser user = this.userService.findSysUserById(id);
 		user.setStatus(3);
 		logUtils.logDelete("ɾ���ɫ", "ɾ��ɹ�����ɫ��ţ�" + id);
-		this.userService.addOrUpdateSysUser(user);*/
+		this.userService.addOrUpdateSysUser(user);
 		return JsonRespWrapper.success("ɾ��ɹ���", "/sys/user/list");
 	}
 
-	
+	*/
 
 	
 	@RequestMapping(value = "changePwd", method = RequestMethod.GET)
@@ -136,33 +148,56 @@ public class MemberController {
 
 	@RequestMapping(value = "changePwd", method = RequestMethod.POST)
 	@ResponseBody
-	public Object changePwdAct(HttpServletRequest request, String orgPwd, String dstPwd, String confirmPwd) {
-/*		if (StringUtils.isEmpty(orgPwd) || StringUtils.isEmpty(dstPwd) || StringUtils.isEmpty(confirmPwd)) {
-			return JsonRespWrapper.successAlert("�޸����벻��Ϊ��");
+	public Object changePwd(HttpServletRequest request, String orgPwd, String dstPwd, String confirmPwd) {
+	if (StringUtils.isEmpty(orgPwd) || StringUtils.isEmpty(dstPwd) || StringUtils.isEmpty(confirmPwd)) {
+			return JsonRespWrapper.successAlert("密码信息不为空");
 		}
-		// �������벻һ��
-		if (!dstPwd.equals(confirmPwd)) {
-			return JsonRespWrapper.successAlert("�������벻һ��");
+			if (!dstPwd.equals(confirmPwd)) {
+			return JsonRespWrapper.successAlert("和确认密码不一致");
 		}
 		SessionUser sessionUser = (SessionUser) request.getSession().getAttribute(SessionUser.SESSION_USER_KEY);
 		if (sessionUser == null) {
 			return JsonRespWrapper.successJump("/logout");
 		}
-
-		SysUser user = userService.findSysUserById(sessionUser.getId());
-		logUtils.logModify("�޸����룡", "�޸ĳɹ�����ţ�" + user.getId());
-		if (!user.getUserPwd().equals(MD5.digest2Str(orgPwd))) {// �����������Ƿ���ȷ
-			return JsonRespWrapper.successAlert("ԭ���벻��ȷ");
+     
+		Member member = service.finMemberById(sessionUser.getId());
+		if(!member.getPassword().equals(MD5.digest2Str(orgPwd))){
+			return JsonRespWrapper.successAlert("原密码错误");
 		}
-		if (user.getUserPwd().equals(MD5.digest2Str(dstPwd))) {// ���������������ͬ
-			return JsonRespWrapper.successAlert("�������ԭ������ͬ");
+		if (member.getPassword().equals(MD5.digest2Str(dstPwd))) {
+			return JsonRespWrapper.successAlert("未修改");
 		}
-		user.setUserPwd(MD5.digest2Str(dstPwd));
-		userService.addOrUpdateSysUser(user);*/
-
-		return JsonRespWrapper.success("�޸ĳɹ�", "/menu/welcome");
+		member.setPassword(MD5.digest2Str(dstPwd));
+		 service.addorupdateMember(member);
+		return JsonRespWrapper.success("修改成功", "/menu/welcome");
 	}
 
+	//修改用户名 account
+	
+	@RequestMapping(value = "changeAccount", method = RequestMethod.GET)
+	public String changeAccount(Model model) {
+
+		return "/sys/user/account-change";
+	}
+	
+	@RequestMapping(value = "changeAccount", method = RequestMethod.POST)
+	@ResponseBody
+	public Object changeAccount(HttpServletRequest request, String account) {
+     if(StringUtils.isEmpty(account)){
+    	 return JsonRespWrapper.successAlert("用户名不能为空"); 
+     } 
+     
+     Member member = service.finMemberAccount(account);
+     if(member!=null){
+    		return JsonRespWrapper.successAlert("用户名为空");
+     }else{
+    	 
+    	 service.addorupdateMember(member);	 
+    	 
+     }
+		return JsonRespWrapper.success("修改成功", "/menu/welcome");
+	}
+	
 	
     private int fackLogin(HttpSession session, String uid,String pass,String sign) {
         final String principal = uid;
