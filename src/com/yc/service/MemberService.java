@@ -24,7 +24,6 @@ public class MemberService {
 	}
     //查找
    public Member finMemberById(Long id){
-	  
 	   return memberdao.findOne(id);
    }	
 	
