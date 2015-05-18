@@ -28,6 +28,9 @@ public class MemberService {
 	   return memberdao.findOne(id);
    }	
 	
-  
+   //查找
+   public Member finMemberAccount(String account){
+	   return memberdao.findByMemberCode(account);
+   }	
 	
 }
