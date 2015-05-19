@@ -16,7 +16,7 @@ public class PathUtil {
 	AppConfig appConfig;
 
 	
-	/*public String getKeyPrefix(String key) {
+	public String getKeyPrefix(String key) {
 		return appConfig.getUploadFileDir();
 	}
 
@@ -35,7 +35,7 @@ public class PathUtil {
 		return new PathInfo(appConfig.getUploadFileDir() + savepath, webpath, filename);
 	}
 
-		*//**
+		/**
 	 * ��ȡ��ͬҵ�����͵��ļ����·��
 	 * 
 	 * @param key
@@ -45,7 +45,7 @@ public class PathUtil {
 	 * @param ext
 	 *            ��չ��
 	 * @return
-	 *//*
+	 */
 	public PathInfo getPathById(String key, long id, String ext) {
 
 		String webpath = "";
@@ -54,8 +54,7 @@ public class PathUtil {
 		ext = ext.toLowerCase();
 
 		
-		 * �㷨�� ��һ�� = ID/(2000*2000) �ڶ���= (ID mod ��2000��2000����/2000 ����� = ID mod
-		 * 2000
+		
 		 
 		long l1 = id / (2000 * 2000);
 
@@ -176,5 +175,5 @@ public class PathUtil {
 		double a1 = Double.parseDouble("4999.99") * 100;
 		System.out.println(new Double(a1).longValue() + "");
 
-	}*/
+	}
 }

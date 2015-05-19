@@ -30,7 +30,7 @@ function autoBindQueryFormFlag(){
  * AJAX Form 扩展方法
  **************************************/
 
-
+//操作成功之后的回调函数
 // 默认的ajax form submit success 回调， 执行预定义的 成功跳转、提示、错误提示等
 function formPostCallback(resp) {	
     if (resp.success) {
@@ -106,7 +106,7 @@ var ajaxFormSubmit = function(formName, customCallBack, beforeSubmit) {
         }
     });
 };
-
+//此段js 表单提交
 var autoBindAjaxForm = function() {
     var forms = $('.required-validate');
     for(var i = 0; i < forms.length; i++) {
@@ -127,7 +127,7 @@ var autoBindAjaxForm = function() {
 
 
 
-
+//提示框 显示   需要 和 jquery.nlockUI.js  配合使用
 /********************
  * Block UI 相关
  **************************************/

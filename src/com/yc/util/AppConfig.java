@@ -29,7 +29,7 @@ public class AppConfig {
 	@Value("${res.root:}")
 	private String resRoot;
 
-	/*@Value("${res.web.root:}")
+	@Value("${res.web.root:}")
 	private String resWebRoot;
 
 	@Value("${test.facklogin:false}")
@@ -47,8 +47,8 @@ public class AppConfig {
 	@Value("${xheditor.upload.img.ext:}")
 	private String xheditorImageExt;
 
-	@Value("${xheditor.upload.maxsize:}")
-	private long xheditorMaxSize;
+	/*@Value("${xheditor.upload.maxsize:}")
+	private long xheditorMaxSize;*/
 
 	@Value("${xheditor.upload.dir:}")
 	private String xheditorUploadDir;
@@ -102,13 +102,13 @@ public class AppConfig {
 		this.xheditorImageExt = xheditorImageExt;
 	}
 
-	public long getXheditorMaxSize() {
+/*	public long getXheditorMaxSize() {
 		return xheditorMaxSize;
 	}
 
 	public void setXheditorMaxSize(long xheditorMaxSize) {
 		this.xheditorMaxSize = xheditorMaxSize;
-	}
+	}*/
 
 	public String getXheditorUploadDir() {
 		return xheditorUploadDir;
@@ -138,8 +138,8 @@ public class AppConfig {
 	@Value("${upload.img.path:}")
 	private String uploadImgPath;
 
-	@Value("${upload.maxsize:}")
-	private long uploadMaxsize;
+//	@Value("${upload.maxsize:}")
+//	private long uploadMaxsize;
 
 	@Value("${upload.file.dir:}")
 	private String uploadFileDir;
@@ -155,7 +155,7 @@ public class AppConfig {
 		this.uploadFilePath = uploadFilePath;
 	}
 
-	*//** 找回密码 *//*
+	/** 找回密码 */
 	@Value("${RETAKE_PWD_CODE_EFFECTIVE_TIME:}")
 	private String retakePwdCodeEffectiveTime;
 
@@ -171,9 +171,9 @@ public class AppConfig {
 		this.retakePwdCodeEffectiveTime = retakePwdCodeEffectiveTime;
 	}
 
-	public long getUploadMaxsize() {
-		return uploadMaxsize;
-	}
+//	public long getUploadMaxsize() {
+//		return uploadMaxsize;
+//	}
 
 	public String getUploadImgDir() {
 		return uploadImgDir;
@@ -268,7 +268,7 @@ public class AppConfig {
 
 	public void setShuiyinimgpath(String shuiyinimgpath) {
 		this.shuiyinimgpath = shuiyinimgpath;
-	}*/
+	}
 	
 	
 

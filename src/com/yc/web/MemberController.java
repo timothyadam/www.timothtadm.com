@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.druid.stat.TableStat.Mode;
@@ -53,7 +54,7 @@ public class MemberController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(Model model, HttpSession session) {
 		System.out.println("进来了1");
-        return "/homes";
+        return "/admin/login";
 
 	}
 	
@@ -107,12 +108,8 @@ public class MemberController {
 	public Object userUpdate(@ModelAttribute("member") Member member, HttpServletRequest request, HttpSession session, BindingResult result) {
 		SessionUser sessionUser = (SessionUser) session.getAttribute(SessionUser.SESSION_USER_KEY);
 		//注册 1  用户名是否已经 存在  2  邮箱是否已经存在  用户名 是否 为空  
-		boolean flag = false;
-		String errorMessage = "用户登录失败";
-		JsonResult jsonResult = new JsonResult();
 		if(member!=null||"".equals(member)){
 		String time = TimeStamp.getTime(TimeStamp.YYYYMMDDhhmmss); 
-		 System.out.println(member.getAccount());
 		 member.setCreate_time(time);  
 		 member.setMemberCode(member.getAccount());
  		 member.setPassword(MD5.digest2Str(member.getPassword()));
@@ -121,10 +118,12 @@ public class MemberController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error(e.getMessage());
+			return JsonRespWrapper.error(e.getMessage());
 		}		
 		}
 		
-		return JsonRespWrapper.success("注册失败", "/sys/member/list");	
+		System.out.println(JsonRespWrapper.success("注册失败", "/sys/member/login"));
+		return JsonRespWrapper.success("注册失败", "/sys/member/login");	
 	}
 
 /*	@RequestMapping(value = "userDel")
@@ -242,6 +241,24 @@ public class MemberController {
         session.setAttribute(AbstractCasFilter.CONST_CAS_ASSERTION, assertion);
         return -1;
     }
-	
+   
+    /*
+	 * 用于js脚本的全部
+	 */
+	@RequestMapping(value = "/static/global.js", produces = { "application/x-javascript", "text/javascript", "application/javascript" })
+	@ResponseBody
+	public String jsGlobal(WebRequest webRequest) {
+		System.out.println("ok look  ");
+		StringBuilder sb = new StringBuilder();
+		sb.append("var G_CTX_ROOT = '").append(webRequest.getContextPath()).append("';\n");
+        System.out.println(sb.toString());
+		/*sb.append("var XH_EXT = '").append(appConfig.getXheditorExt()).append("';\n");
+        sb.append("var XH_IMG_EXT = '").append(appConfig.getXheditorImageExt()).append("';\n");
+        sb.append("var XH_MAXSIZE = '").append(appConfig.getXheditorMaxSize()).append("';\n");
+        sb.append("var XH_DOMAIN = '").append(appConfig.getXheditorDomain()).append("';\n");*/
+
+		return sb.toString();
+	}
+
 	
 }

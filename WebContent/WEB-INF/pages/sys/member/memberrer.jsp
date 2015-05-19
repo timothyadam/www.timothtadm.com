@@ -15,19 +15,15 @@
  <div class="container">
  <div class="panel" >
  <div class="panel-title"><h1 >用户注册</h1></div>
-
 <fieldset > 
-
-<form:form id="fm"  method="post" commandName="member" htmlEscape="true" acceptCharset="utf-8"  cssStyle="required-validate">
-<input type="hidden" name="randomString" id="randomString" value=""/>
-<input type="hidden" name="type" id="type" value="syslogin"/>
+<form:form id="fm"  method="post" commandName="member" htmlEscape="true" acceptCharset="utf-8" cssClass="required-validate">
 <div class="labe">
 <label>用户名：</label>
-<form:input id="account" path="account"  cssClass="small required" maxlength="100"  />
+<form:input id="account" path="account"  cssClass="small required" maxlength="100" />
 </div>
 <div>
 <label>pass ：</label>
-<form:input id="password" path="password"/>
+<form:input id="password" path="password"  Class="small required  maxlength=100"/>
 </div>
 <div>
 <label>昵称　：</label>
@@ -36,7 +32,7 @@
 <div>
 
 <label>手机号码：</label>
- <form:input path="phone" id="phone"/>
+ <form:input path="phone" id="phone" />
 </div>
 
 <div>
@@ -45,28 +41,18 @@
 </div>
 <div>
 <label>邮箱：</label>
- <form:input path="email" id="email"/>
+ <form:input path="email" id="email" Class="small required  maxlength=100"/>
 </div>
 
 <div class="button">
-<input type="submit" id="submit.highlight" name="submit.highlight" value="提交" />
+<input type="submit" name="submit.highlight" value="提交" />
 <input type="reset" name="reset" value="重置" />
-
 </div>
-
 </form:form>
  
  </fieldset>
 
   </div>
  </div>
- <script type="text/javascript">
- 
- 
- 
- 
- </script>
- 
- 
 </body>
 </html>

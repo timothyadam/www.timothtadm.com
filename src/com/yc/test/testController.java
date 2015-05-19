@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.yc.entity.Member;
 import com.yc.service.MemberService;
 
 @Controller
@@ -26,7 +27,8 @@ public class testController {
 	@RequestMapping(value="/pass", method = RequestMethod.GET)
 	public String 	List(HttpServletRequest request, HttpServletResponse response,HttpSession session,@RequestParam(required = false, value = "page", defaultValue = "1") int page, Model model)
 	        throws SQLException {
-	
+		Member member = new Member();
+	    model.addAttribute(member);
 	  
 		System.out.println("进入了pass");
 		return "/test/test_list";
