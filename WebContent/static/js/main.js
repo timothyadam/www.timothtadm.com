@@ -35,15 +35,17 @@ function autoBindQueryFormFlag(){
 function formPostCallback(resp) {	
     if (resp.success) {
         var msg = resp.message;
+        
         var url = resp.url;
         if (url && url.indexOf('http') != 0 && url.indexOf("javascript") != 0) {
-            url = G_CTX_ROOT + url;
+            url = "http://localhost:8080/ycmall" + url;
+     
         }
         if (msg) {
             if (url) {
-                simpleAlert(msg, function() {
-                    location.href = url;
-                });
+            	simpleAlert(msg, function() {
+                location.href = url;
+            	});
             } else {
                 simpleAlert(msg);
                 window.close();
@@ -265,7 +267,7 @@ var setTableEvnent = function(){
 		var open = $(this).attr("openFlag");
 		var onAction = $(this).attr("onAction");
 		
-		var actionurl = G_CTX_ROOT;
+		var actionurl = "http://localhost:8080/ycmall/";
 		if(!jQuery.isEmptyObject( $("table.datalist").attr("action"))){
 			actionurl +=  $("table.datalist").attr("action") ;
 		}
@@ -298,7 +300,7 @@ var setTableEvnent = function(){
 						        var msg = resp.message;
 						        var url = resp.url;
 						        if (url && url.indexOf('http') != 0 && url.indexOf("javascript") != 0) {
-						            url = G_CTX_ROOT + url;
+						            url = "http://localhost:8080/ycmall/" + url;
 						        }
 						        if (msg) {
 						            if (url) {

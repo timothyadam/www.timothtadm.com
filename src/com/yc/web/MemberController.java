@@ -122,8 +122,8 @@ public class MemberController {
 		}		
 		}
 		
-		System.out.println(JsonRespWrapper.success("注册失败", "/sys/member/login"));
-		return JsonRespWrapper.success("注册失败", "/sys/member/login");	
+		System.out.println(JsonRespWrapper.success("注册成功", "/sys/member/register"));
+		return JsonRespWrapper.success();	
 	}
 
 /*	@RequestMapping(value = "userDel")
