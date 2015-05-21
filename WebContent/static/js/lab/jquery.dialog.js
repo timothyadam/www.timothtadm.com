@@ -546,7 +546,7 @@
         return;
     }
 
-    var ieBug = $.browser.msie && parseFloat($.browser.version) < 7;
+    var ieBug = $.support.msie && parseFloat($.support.version) < 7;
 
     $.fn.removeShadow = function() {
         return this.each(function() {
@@ -644,7 +644,7 @@
     var scrollbarWidth = 0;
     $.scrollbarWidth = function() {
         if ( !scrollbarWidth ) {
-            if ( $.browser.msie ) {
+            if ( $.support.msie ) {
                 var $textarea1 = $('<textarea cols="10" rows="2"></textarea>')
                         .css({ position: 'absolute', top: -1000, left: -1000 }).appendTo('body'),
                     $textarea2 = $('<textarea cols="10" rows="2" style="overflow: hidden;"></textarea>')
@@ -679,7 +679,7 @@ if ($.dialog) {
 }
 
 var $window = $(window), $document = $(document);
-var ieBug = $.browser.msie && parseFloat($.browser.version) < 7;
+var ieBug = $.support.msie && parseFloat($.support.version) < 7;
 
 // jQuery doesn't support a is string judgement, so I made it by myself.
 function isString(obj) {

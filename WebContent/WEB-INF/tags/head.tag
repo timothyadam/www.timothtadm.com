@@ -15,24 +15,26 @@
     <link href="<spring:url value="/static/jquery-ui/jquery-ui.min.css"/>" rel="stylesheet" type="text/css" />
     <link href="<spring:url value="/static/jquery-ui/jquery-ui.theme.min.css"/>" rel="stylesheet" type="text/css" />
     <link href="<spring:url value="/static/jquery-ui/jquery-ui.structure.min.css"/>" rel="stylesheet" type="text/css" /> 
+    
+    
+    
     <script src="<spring:url value="/static/global.js"/>" type="text/javascript" charset="utf-8"></script>
+    <script src="<spring:url value="/static/jquery-ui/external/jquery/jquery.js"/>" type="text/javascript" charset="utf-8"></script>
+    <script src="<spring:url value="/static/js/jquery.blockUI.js"/>" type="text/javascript" charset="utf-8"></script>
+    <script src="<spring:url value="/static/js/jquery.form.js"/>" type="text/javascript" charset="utf-8"></script>
+    <script src="<spring:url value="/static/js/lab/jquery.dialog.js"/>" type="text/javascript" charset="utf-8"></script>
+    <script src="<spring:url value="/static/js/lab/jquery.dialog.js"/>" type="text/javascript" charset="utf-8"></script>
+    <link href="<spring:url value="/static/js/lab/default/dialog.css"/>" rel="stylesheet" type="text/css" />
+    <link href="<spring:url value="/static/js/lab/default/ibutton.css"/>" rel="stylesheet" type="text/css" />
+  
+  
     <!-- link base js  -->
-     <script src="<spring:url value="/static/jquery-ui/external/jquery/jquery.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/jquery-ui/jquery-ui.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/bootstrap/js/bootstrap.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/bootstrap/js/bootstrap.min.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/bootstrap/js/npm.js"/>" type="text/javascript" charset="utf-8"></script>
     <!-- it form  me -->
-     <script src="<spring:url value="/static/js/main.js"/>" type="text/javascript" charset="utf-8"></script>
-    <script src="<spring:url value="/static/js/jquery.form.js"/>" type="text/javascript" charset="utf-8"></script>
-    <!--表单验证  -->
-    <script src="<spring:url value="/static/js/validation/validation_cn.js"/>" type="text/javascript" charset="utf-8"></script>
     <script src="<spring:url value="/static/js/main.js"/>" type="text/javascript" charset="utf-8"></script>
-    <script src="<spring:url value="/static/js/jquery.blockUI.js"/>" type="text/javascript" charset="utf-8"></script>
-    <script src="<spring:url value="/static/js/lab/jquery.dialog.js"/>" type="text/javascript" charset="utf-8"></script>
-    <link href="<spring:url value="/static/js/lab/default/dialog.css"/>" rel="stylesheet" type="text/css" />
-    <link href="<spring:url value="/static/js/lab/default/ibutton.css"/>" rel="stylesheet" type="text/css" />
-    
        <!--test-->    
     <!-- end -->
          

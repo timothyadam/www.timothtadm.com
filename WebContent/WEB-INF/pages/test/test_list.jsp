@@ -16,6 +16,14 @@
     <div class="title">
         <h5>添加项目</h5>
     </div>
+   <script type="text/javascript">
+   
+   alert("tets");
+   
+   alert("look  at there "+G_CTX_ROOT);
+   
+   
+   </script>
     <!-- end box / title -->
     <form:form method="post" id="fm" commandName="member" htmlEscape="true" acceptCharset="utf-8" cssClass="required-validate" >
         <div class="form">

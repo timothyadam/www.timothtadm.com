@@ -35,16 +35,16 @@ function autoBindQueryFormFlag(){
 function formPostCallback(resp) {	
     if (resp.success) {
         var msg = resp.message;
-        
         var url = resp.url;
+//        alert(G_CTX_ROOT);
         if (url && url.indexOf('http') != 0 && url.indexOf("javascript") != 0) {
             url = "http://localhost:8080/ycmall" + url;
-     
         }
         if (msg) {
+
             if (url) {
             	simpleAlert(msg, function() {
-                location.href = url;
+            		window.location.href= url;
             	});
             } else {
                 simpleAlert(msg);
@@ -509,7 +509,7 @@ function dealInfo(msg,url,customCallBack){
 		        var msg = resp.message;
 		        var url = resp.url;
 		        if (url && url.indexOf('http') != 0 && url.indexOf("javascript") != 0) {
-		            url = G_CTX_ROOT + url;
+		            url ="http://locahost:8080/ycmall" + url;
 		        }
 		        if (msg) {
 		            if (url) {
