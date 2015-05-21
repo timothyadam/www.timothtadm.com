@@ -35,6 +35,7 @@ import com.yc.entity.JsonResult;
 import com.yc.entity.Member;
 import com.yc.entity.SessionUser;
 import com.yc.service.MemberService;
+import com.yc.util.AppConfig;
 import com.yc.util.JsonRespWrapper;
 import com.yc.validator.UserValidator;
 
@@ -49,7 +50,8 @@ public class MemberController {
 
 	@Autowired
 	private UserValidator userValidator;
-	
+	@Autowired
+	AppConfig appConfig;
 	//判断是否 登陆
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(Model model, HttpSession session) {
@@ -121,9 +123,8 @@ public class MemberController {
 			return JsonRespWrapper.error(e.getMessage());
 		}		
 		}
-		
 		System.out.println(JsonRespWrapper.success("注册成功", "/sys/member/register"));
-		return JsonRespWrapper.success();	
+		return JsonRespWrapper.success("注册成功", "/sys/login");
 	}
 
 /*	@RequestMapping(value = "userDel")
@@ -252,10 +253,11 @@ public class MemberController {
 		StringBuilder sb = new StringBuilder();
 		sb.append("var G_CTX_ROOT = '").append(webRequest.getContextPath()).append("';\n");
         System.out.println(sb.toString());
-		/*sb.append("var XH_EXT = '").append(appConfig.getXheditorExt()).append("';\n");
-        sb.append("var XH_IMG_EXT = '").append(appConfig.getXheditorImageExt()).append("';\n");
-        sb.append("var XH_MAXSIZE = '").append(appConfig.getXheditorMaxSize()).append("';\n");
-        sb.append("var XH_DOMAIN = '").append(appConfig.getXheditorDomain()).append("';\n");*/
+        /*sb.append("var XH_EXT = '").append(appConfig.getXheditorExt()).append("';\n");
+		 sb.append("var XH_IMG_EXT = '").append(appConfig.getXheditorImageExt()).append("';\n");
+		 sb.append("var XH_DOMAIN = '").append(appConfig.getXheditorDomain()).append("';\n");
+		   sb.append("var XH_MAXSIZE = '").append(appConfig.getXheditorMaxSize()).append("';\n");
+        */
 
 		return sb.toString();
 	}
