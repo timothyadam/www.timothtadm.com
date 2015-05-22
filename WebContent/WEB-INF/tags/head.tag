@@ -15,6 +15,7 @@
     <link href="<spring:url value="/static/jquery-ui/jquery-ui.min.css"/>" rel="stylesheet" type="text/css" />
     <link href="<spring:url value="/static/jquery-ui/jquery-ui.theme.min.css"/>" rel="stylesheet" type="text/css" />
     <link href="<spring:url value="/static/jquery-ui/jquery-ui.structure.min.css"/>" rel="stylesheet" type="text/css" /> 
+    <link href="<spring:url value="/static/css/comm.css"/>" rel="stylesheet" type="text/css" /> 
     
     
     

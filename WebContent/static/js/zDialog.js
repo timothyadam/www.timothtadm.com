@@ -4,7 +4,7 @@
  * QQ：4845587 E-mail:wzh@wangzhaohui.com
  * 最后修正：2010-3-18
  **/
-var IMAGESPATH ="http://localhost:8080/ycmall/" + '/static/images/dialog/'; //图片路径配置
+var IMAGESPATH =G_CTX_ROOT + '/static/images/dialog/'; //图片路径配置
 var HideScrollbar=true;//弹出Dialog时是否隐藏滚动条
 /*************************一些公用方法和属性****************************/
 var isIE = navigator.userAgent.indexOf('MSIE') != -1;

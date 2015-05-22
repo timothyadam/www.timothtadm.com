@@ -8,10 +8,6 @@
 <ht:head title="用户注册"></ht:head>
 </head>
  <body>
- <script type="text/javascript">
- 
- 
- </script>
  <div class="container">
  <div class="panel" >
  <div class="panel-title"><h1 >用户注册</h1></div>

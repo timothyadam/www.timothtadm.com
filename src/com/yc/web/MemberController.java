@@ -40,7 +40,7 @@ import com.yc.util.JsonRespWrapper;
 import com.yc.validator.UserValidator;
 
 @Controller
-@RequestMapping(value="/sys")
+@RequestMapping(value="/")
 public class MemberController {
 	private static Logger log = Logger.getLogger(MemberController.class);
 	@Autowired
@@ -124,7 +124,7 @@ public class MemberController {
 		}		
 		}
 		System.out.println(JsonRespWrapper.success("注册成功", "/sys/member/register"));
-		return JsonRespWrapper.success("注册成功", "/sys/login");
+		return JsonRespWrapper.success("注册成功", "/login");
 	}
 
 /*	@RequestMapping(value = "userDel")
@@ -143,7 +143,7 @@ public class MemberController {
 	@RequestMapping(value = "changePwd", method = RequestMethod.GET)
 	public String changePwd(Model model) {
 
-		return "/sys/user/pwd-change";
+		return "/sys/member/pwd_change";
 	}
 
 	@RequestMapping(value = "changePwd", method = RequestMethod.POST)

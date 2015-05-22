@@ -8,6 +8,17 @@
 <ht:head title="修改密码"></ht:head>
 </head>
 <body>
+<div class="container">
 
+      <form:form class="table-show" id="fn" action="" method="post" commandName="member"  acceptCharset="utf-8">
+         <h2 class="table-show-heading">修该密码</h2>
+         <label for="inputEmail" class="sr-only">原密码</label>
+         <input type="password"  id="inputPassword" class="form-control"    />
+        <label for="inputPassword" class="sr-only">新密码</label>
+        <input type="password" id="inputPassword"  class="form-control"  />
+        <button class="btn btn-lg btn-primary btn-block"  type="submit">确认</button>
+      </form:form>
+
+    </div> 
 </body>
 </html>

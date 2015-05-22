@@ -38,13 +38,13 @@ function formPostCallback(resp) {
         var url = resp.url;
 //        alert(G_CTX_ROOT);
         if (url && url.indexOf('http') != 0 && url.indexOf("javascript") != 0) {
-            url = "http://localhost:8080/ycmall" + url;
+            url = G_CTX_ROOT + url;
         }
         if (msg) {
 
             if (url) {
             	simpleAlert(msg, function() {
-            		window.location.href= url;
+            		location.href= url;
             	});
             } else {
                 simpleAlert(msg);
@@ -300,7 +300,7 @@ var setTableEvnent = function(){
 						        var msg = resp.message;
 						        var url = resp.url;
 						        if (url && url.indexOf('http') != 0 && url.indexOf("javascript") != 0) {
-						            url = "http://localhost:8080/ycmall/" + url;
+						            url = G_CTX_ROOT + url;
 						        }
 						        if (msg) {
 						            if (url) {
@@ -509,7 +509,7 @@ function dealInfo(msg,url,customCallBack){
 		        var msg = resp.message;
 		        var url = resp.url;
 		        if (url && url.indexOf('http') != 0 && url.indexOf("javascript") != 0) {
-		            url ="http://locahost:8080/ycmall" + url;
+		            url ="G_CTX_ROOT" + url;
 		        }
 		        if (msg) {
 		            if (url) {
