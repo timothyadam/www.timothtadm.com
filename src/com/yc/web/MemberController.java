@@ -142,17 +142,18 @@ public class MemberController {
 	
 	@RequestMapping(value = "changePwd", method = RequestMethod.GET)
 	public String changePwd(Model model) {
-
+		Member  members = new Member();
+		model.addAttribute("member",members);
 		return "/sys/member/pwd_change";
 	}
 
 	@RequestMapping(value = "changePwd", method = RequestMethod.POST)
 	@ResponseBody
-	public Object changePwd(HttpServletRequest request, String orgPwd, String dstPwd, String confirmPwd) {
-	if (StringUtils.isEmpty(orgPwd) || StringUtils.isEmpty(dstPwd) || StringUtils.isEmpty(confirmPwd)) {
-			return JsonRespWrapper.successAlert("密码信息不为空");
+	public Object changePwd(HttpServletRequest request, String password, String newPass, String confirmPass) {
+	if (StringUtils.isEmpty(password) || StringUtils.isEmpty(newPass) || StringUtils.isEmpty(confirmPass)) {
+			return JsonRespWrapper.successAlert("密码不为空");
 		}
-			if (!dstPwd.equals(confirmPwd)) {
+			if (!newPass.equals(confirmPass)) {
 			return JsonRespWrapper.successAlert("和确认密码不一致");
 		}
 		SessionUser sessionUser = (SessionUser) request.getSession().getAttribute(SessionUser.SESSION_USER_KEY);
@@ -161,15 +162,15 @@ public class MemberController {
 		}
      
 		Member member = service.finMemberById(sessionUser.getId());
-		if(!member.getPassword().equals(MD5.digest2Str(orgPwd))){
+		if(!member.getPassword().equals(MD5.digest2Str(password))){
 			return JsonRespWrapper.successAlert("原密码错误");
 		}
-		if (member.getPassword().equals(MD5.digest2Str(dstPwd))) {
+		if (member.getPassword().equals(MD5.digest2Str(newPass))) {
 			return JsonRespWrapper.successAlert("未修改");
 		}
-		member.setPassword(MD5.digest2Str(dstPwd));
+		member.setPassword(MD5.digest2Str(newPass));
 		 service.addorupdateMember(member);
-		return JsonRespWrapper.success("修改成功", "/menu/welcome");
+		return JsonRespWrapper.success("修改成功", "/login");
 	}
 
 	//修改用户名 account
@@ -195,7 +196,7 @@ public class MemberController {
     	 service.addorupdateMember(member);	 
     	 
      }
-		return JsonRespWrapper.success("修改成功", "/menu/welcome");
+		return JsonRespWrapper.success("修改成功", "/login");
 	}
 	
 	

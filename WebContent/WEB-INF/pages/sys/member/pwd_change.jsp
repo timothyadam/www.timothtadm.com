@@ -9,14 +9,27 @@
 </head>
 <body>
 <div class="container">
-
-      <form:form class="table-show" id="fn" action="" method="post" commandName="member"  acceptCharset="utf-8">
-         <h2 class="table-show-heading">修该密码</h2>
-         <label for="inputEmail" class="sr-only">原密码</label>
-         <input type="password"  id="inputPassword" class="form-control"    />
+   <h2 class="form-signin-heading">修改密码</h2>
+       <form:form id="fm" action="" commandName="member"  acceptCharset="utf-8" method="post" htmlEscape="true"  cssClass="required-validate" >
+       <div>
+        <label for="oldPassword" class="sr-only">原密码</label>
+       
+        <form:password  id="oldPassword" path="password" placeholder="原密码"  cssStyle="form-control"  />
+       </div>
+   
+       <div>
         <label for="inputPassword" class="sr-only">新密码</label>
-        <input type="password" id="inputPassword"  class="form-control"  />
-        <button class="btn btn-lg btn-primary btn-block"  type="submit">确认</button>
+        <form:password  id="inputPassword" path="newPass"  placeholder="新密码"  cssStyle="form-control" /> 
+         <!-- placeholder="Password" -->
+      </div>   
+       <div>
+       
+       <label for="confirmPass" class="sr-only">确认密码</label>
+       <form:password  id="confirmPass" path="confirmPass" placeholder="确认密码"    cssStyle="form-control" />
+       </div>
+       
+       
+       <input type="submit" value="确认"   class="btn btn-lg btn-primary " style="width:150px;height: 39px" /> 
       </form:form>
 
     </div> 

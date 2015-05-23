@@ -32,6 +32,7 @@ public class Member implements Serializable{
       String nic;
       String phone;
       String password;
+      String newPass;
       String confirmPass;
       String adress;
       String create_time;
@@ -124,6 +125,13 @@ public class Member implements Serializable{
 	}
 	public void setFlag(String flag) {
 		this.flag = flag;
+	}
+	@Transient
+	public String getNewPass() {
+		return newPass;
+	}
+	public void setNewPass(String newPass) {
+		this.newPass = newPass;
 	}
     
 	
