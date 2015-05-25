@@ -1,3 +1,5 @@
+<%@ page language="java" pageEncoding="utf-8"%>
+<%@ include file="../includes/importer.jsp"%>
 <%
 	/* *
 	 *功能：支付宝纯网关接口调试入口页面
@@ -7,12 +9,14 @@
 	 *以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
 	 */
 %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
+	
 	<title>支付宝纯网关接口</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<ht:head/>
 <style>
 *{
 	margin:0;
@@ -160,7 +164,7 @@ ul,ol{
 				<li class="last">3、确认完成</li>
             </ol>
         </div>
-        <form name=alipayment action=alipayapi.jsp method=post target="_blank">
+        <form name="alipayment" action= "${ctx}/pay/order" method="post" target="_blank">
             <div id="body" style="clear:left">
                 <dl class="content">
 					<dt>商户订单号：</dt>
@@ -178,7 +182,7 @@ ul,ol{
 					<dt>付款金额：</dt>
 					<dd>
 						<span class="null-star">*</span>
-						<input size="30" name="WIDtotal_fee" />
+						<input size="30" name="total_fee" />
 						<span>必填</span>
 					</dd>
 					<dt>订单描述：</dt>
