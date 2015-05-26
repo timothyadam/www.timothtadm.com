@@ -55,7 +55,6 @@ public class MemberController {
 	//判断是否 登陆
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(Model model, HttpSession session) {
-		System.out.println("进来了1");
         return "/admin/login";
 
 	}
@@ -74,27 +73,14 @@ public class MemberController {
 	@ResponseBody
 	public Object memberlogin(Model model,String account,String password, HttpSession session) {
 		 int flag=  fackLogin(session, account,password,"");
-         if(flag==0){
-       	  model.addAttribute("msg","请输入用户名！");
-       	  System.out.println("请输入用户名！");
-       	  return "sys/member/list"; 
-         }
-         if(flag==1){
-       	  model.addAttribute("msg","请输入用户密码！");
-       	  System.out.println("请输入用户密码！！");
-       	 return "sys/member/list"; 
-         }
          if(flag==2){
-       	  model.addAttribute("msg","用户不存在！");
-       	  System.out.println("用户不存在！！");
+       	 model.addAttribute("msg","用户不存在！");
        	 return "sys/member/list"; 
          }
          if(flag==3){
-       	  model.addAttribute("msg","密码不正确！");
-    	  System.out.println("密码不正确！");
-       	 return "sys/member/list"; 
+          return JsonRespWrapper.success("密码错误","sys/member/list");
          }
-       return 	  "sys/member/list"; 
+       return 	JsonRespWrapper.success("登陆成功","sys/member/list"); 
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)

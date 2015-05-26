@@ -33,5 +33,14 @@ public class testController {
 		System.out.println("进入了pass");
 		return "/test/test_list";
 	}
+	@RequestMapping(value="/home", method = RequestMethod.GET)
+	public String 	home(HttpServletRequest request, HttpServletResponse response,HttpSession session,@RequestParam(required = false, value = "page", defaultValue = "1") int page, Model model)
+	        throws SQLException {
+	
+		return "/home/homes";
+	}
+
+
+
 
 }

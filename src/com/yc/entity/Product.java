@@ -10,8 +10,8 @@ import javax.persistence.Table;
  * @author 王鑫
  * @修改日期 2015-5-25下午1:29:53
  */
-@Entity
-@Table(name = "yc_product")
+//@Entity
+//@Table(name = "yc_product")
 public class Product implements Serializable {
 
 	Long id;//产品Id
